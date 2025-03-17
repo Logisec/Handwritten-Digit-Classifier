@@ -43,11 +43,8 @@ def preprocess_image(image_path):
 
 def predict_digit(model, image_path):
     """Predict the digit in the image."""
-
     img_data, img_array = preprocess_image(image_path)
-
     prediction = model.predict(img_data)[0]
-
     output, _ = model.forward(img_data)
     probabilities = output[0]
 
@@ -55,7 +52,6 @@ def predict_digit(model, image_path):
 
 
 def main():
-
     if len(sys.argv) < 2:
         print("Usage: python test_single_digit.py <path_to_image>")
         return
@@ -89,7 +85,6 @@ def main():
 
     plt.tight_layout()
     plt.show()
-
 
 if __name__ == "__main__":
     main()

@@ -9,6 +9,7 @@ from src.data_loader import load_data, get_batch
 from src.neural_network import NeuralNetwork
 from src.utilities import evaluate_model
 
+
 def main():
     input_size = 784
     hidden_size = 128
@@ -51,9 +52,7 @@ def main():
             epoch_loss += loss
 
             if (batch + 1) % 100 == 0:
-                print(
-                    f"Epoch {epoch+1}/{epochs}, Batch {batch+1}/{num_batches}, Loss: {loss:.4f}"
-                )
+                print(f"Epoch {epoch+1}/{epochs}, Batch {batch+1}/{num_batches}, Loss: {loss:.4f}")
 
         test_accuracy, test_loss = evaluate_model(nn, test_images, test_labels)
 
@@ -78,7 +77,6 @@ def main():
     np.save("models/W2.npy", nn.W2)
     np.save("models/b2.npy", nn.b2)
     print("Model saved successfully!")
-
 
 if __name__ == "__main__":
     main()

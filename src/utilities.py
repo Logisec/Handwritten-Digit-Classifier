@@ -26,7 +26,6 @@ def calculate_loss(output, y):
     Returns:
         float: Cross-entropy loss
     """
-
     output = np.clip(output, 1e-10, 1.0)
     return -np.mean(np.sum(y * np.log(output), axis=1))
 

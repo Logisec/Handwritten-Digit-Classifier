@@ -27,7 +27,6 @@ class NeuralNetwork:
 
     def softmax(self, x):
         """Softmax activation function with numerical stability."""
-
         exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))
         return exp_x / np.sum(exp_x, axis=1, keepdims=True)
 
@@ -41,7 +40,6 @@ class NeuralNetwork:
         Returns:
             tuple: (output, cache) where cache contains intermediate values
         """
-
         z1 = np.dot(X, self.W1) + self.b1
         a1 = self.relu(z1)
 
@@ -63,7 +61,6 @@ class NeuralNetwork:
         Returns:
             dict: Gradients for each parameter
         """
-
         batch_size = y.shape[0]
 
         X = cache["X"]
@@ -107,13 +104,9 @@ class NeuralNetwork:
         Returns:
             float: Loss for this batch
         """
-
         output, cache = self.forward(X)
-
         gradients = self.backward(y, cache)
-
         self.update_parameters(gradients)
-
         loss = -np.mean(np.sum(y * np.log(np.clip(output, 1e-10, 1.0)), axis=1))
 
         return loss
